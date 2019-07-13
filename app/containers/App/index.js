@@ -14,7 +14,6 @@ import { Switch, Route } from 'react-router-dom';
 import MainPage from 'containers/MainPage/';
 import SingleView from 'containers/SingleView/';
 import MultiView from 'containers/MultiView/';
-import FeaturePage from 'containers/FeaturePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -39,7 +38,7 @@ export default function App() {
       >
         <meta name="description" content="A React.js Boilerplate application" />
       </Helmet>
-      <Header />
+      {/* <Header /> */}
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/single" component={SingleView} />
