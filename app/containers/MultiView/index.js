@@ -8,7 +8,14 @@ class MultiView extends React.Component {
   }
 
   render() {
-    return <p>This is the multiview page</p>;
+
+    let usernames = queryParamParse(this.props.location.search);
+    
+    if(usernames.length == 0){
+      return <Redirect to="/"/>
+    }
+
+    return <p>This is the multi view page</p>;
   }
 }
 
