@@ -1,15 +1,11 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-
-import A from 'components/A';
-import LocaleToggle from 'containers/LocaleToggle';
-import Wrapper from './Wrapper';
-import messages from './messages';
+import HelpButton from '../Help';
 
 function Footer() {
   return (
     <div>
-      <p>This is the footer</p>
+      <h1>This is the footer</h1>
+      <HelpButton />
     </div>
   );
 }
