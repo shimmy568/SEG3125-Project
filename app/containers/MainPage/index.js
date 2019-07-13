@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from 'components/Header';
 import PropTypes from 'prop-types';
 import update from 'react-addons-update'; // ES6
 
@@ -16,6 +17,19 @@ class MainPage extends React.Component {
     inp.push('');
     this.setState({
       inpCount: this.state.inpCount + 1,
+      inpContent: inp,
+    });
+  }
+
+  removeInput() {
+    if(this.state.inpCount == 1){
+      return;
+    }
+    
+    const inp = this.state.inpContent;
+    inp.pop();
+    this.setState({
+      inpCount: this.state.inpCount - 1,
       inpContent: inp,
     });
   }
@@ -49,9 +63,8 @@ class MainPage extends React.Component {
   }
 
   onUpdateUsername = this.updateUsername.bind(this);
-
   onAddInput = this.addInput.bind(this);
-
+  onRemoveInput = this.removeInput.bind(this);
   onButtonClick = this.buttonClick.bind(this);
 
   render() {
@@ -61,7 +74,7 @@ class MainPage extends React.Component {
         <div className="input-group mb-3" key={i}>
           <input
             type="text"
-            className="form-control"
+            className="form-control col-6 offset-3"
             index={i}
             onChange={this.onUpdateUsername}
             placeholder={`User ${i + 1}`}
@@ -85,23 +98,31 @@ class MainPage extends React.Component {
     }
 
     return (
-      <div className="container">
-        <p>This is the main page</p>
-        <div className="row">{inputs}</div>
-        <div className="row text-center">
-          <a className="col-2 offset-5" onClick={this.onAddInput} href="#">
-            Add User
-          </a>
-        </div>
-        <div className="row text-center">
-          <button
-            type="button"
-            className="mt-3 col-2 offset-5 btn btn-primary btn-lg"
-            onClick={this.onButtonClick}
-            disabled={buttonDisabled}
-          >
-            {buttonStr}
-          </button>
+      <div>
+        <Header />
+        <div className="container mt-4">
+          <div className="row">{inputs}</div>
+          <div className="row text-center">
+            <div className="col-4 offset-4">
+              <a onClick={this.onAddInput} href="#">
+                Add User
+              </a>
+              &nbsp;
+              <a onClick={this.onRemoveInput} href="#">
+                Remove User
+              </a>
+            </div>
+          </div>
+          <div className="row text-center">
+            <button
+              type="button"
+              className="mt-3 col-2 offset-5 btn btn-primary btn-lg"
+              onClick={this.onButtonClick}
+              disabled={buttonDisabled}
+            >
+              {buttonStr}
+            </button>
+          </div>
         </div>
       </div>
     );

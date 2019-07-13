@@ -12,7 +12,7 @@ class NavBar extends React.Component {
         className="navbar navbar-dark bg-secondary container-fullwidth 
       flex-lg-row justify-content-start"
       >
-        <div className="px-4">
+        <div className="mr-4">
           <a className="navbar-brand" href="#">
             <img
               src={require('../../images/logo.png')}
@@ -21,7 +21,7 @@ class NavBar extends React.Component {
             />
           </a>
         </div>
-        <div className="px-4">
+        <div>
           <span className="navbar-brand">Site Name</span>
         </div>
       </nav>
