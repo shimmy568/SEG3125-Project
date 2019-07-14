@@ -21,6 +21,7 @@ export default function UserProfile(props) {
   const colors = ["#f56942", "#ffee6e", "#a6ff6e", "#8884d8", , "#82ca9d"];
   const oppocolors = ["black", "black", "black", "black", , "black"];
   const w = props.index;
+  const x = parseInt(props.name[props.name.length - 1], 10) % 5;
 
   let link = (
     <Link
@@ -55,7 +56,7 @@ export default function UserProfile(props) {
     <div>
       <div className="card">
         {props.name !== undefined ? (
-          <img src={photos[w]} className="card-img-top" alt="" />
+          <img src={photos[x]} className="card-img-top" alt="" />
         ) : (
           <img src={user} className="card-img-top" />
         )}
@@ -66,7 +67,7 @@ export default function UserProfile(props) {
             <h5 className="card-title">Unable to find name</h5>
           )}
           {props.name !== undefined ? (
-            <p className="card-text">{descriptions[w]}</p>
+            <p className="card-text">{descriptions[x]}</p>
           ) : (
             <p className="card-text">Unable to find description</p>
           )}
