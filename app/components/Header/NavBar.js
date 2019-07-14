@@ -22,7 +22,7 @@ class NavBar extends React.Component {
           </a>
         </div>
         <div>
-          <span className="navbar-brand">Site Name</span>
+          <span className="navbar-brand">StatsHub</span>
         </div>
       </nav>
     );
