@@ -17,13 +17,13 @@ export default function UserProfile(props) {
   let w =  parseInt(props.name[props.name.length - 1],10) % 5;
 
   let link = (
-    <Link to={`/single?user=${props.name}`} class="btn btn-primary" style={{backgroundColor: colors[w], borderColor: colors[w], color: oppocolors[w]}}>
+    <Link to={`/single?user=${props.name}`} className="btn btn-primary" style={{backgroundColor: colors[w], borderColor: colors[w], color: oppocolors[w]}}>
       View Profile
     </Link>
   );
   if(props.isSingle){
     link = (
-      <Link to={`https://github.com/${props.name}`} class="btn btn-primary" style={{backgroundColor: colors[w], borderColor: colors[w], color: oppocolors[w]}}>
+      <Link to={`https://github.com/${props.name}`} className="btn btn-primary" style={{backgroundColor: colors[w], borderColor: colors[w], color: oppocolors[w]}}>
         View Profile
       </Link>
     );

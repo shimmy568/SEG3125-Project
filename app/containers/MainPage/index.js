@@ -117,11 +117,11 @@ class MainPage extends React.Component {
         <div className="container mt-4">
           <div className="row text-center mb-3">
             <div className="col-4 offset-4">
-              <a onClick={this.onAddInput} style={addUserStyle} href={addUserHref}>
+              <a onClick={addUserHref == null ? undefined : this.onAddInput} style={addUserStyle} href={addUserHref}>
                 Add User
               </a>
               &nbsp;
-              <a onClick={this.onRemoveInput} style={removeUserStyle} href={removeUserHref}>
+              <a onClick={removeUserHref == null ? undefined : this.onRemoveInput} style={removeUserStyle} href={removeUserHref}>
                 Remove User
               </a>
             </div>
