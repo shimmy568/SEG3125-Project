@@ -19,19 +19,24 @@ class MultiView extends React.Component {
   }
 
   render() {
+    const usernames = queryParamParse(this.props.location.search);
 
-    let usernames = queryParamParse(this.props.location.search);
-    
-    if(usernames.length == 0){
-      return <Redirect to="/"/>
+    if (usernames.length == 0) {
+      return <Redirect to="/" />;
     }
-    let descriptions = ["I Like coding","I like photography","I live in Ottawa","I live in Toronto","I like birds"];
-    let photos = [photo1,photo2,photo3,photo4,photo5];
+    const descriptions = [
+      'I Like coding',
+      'I like photography',
+      'I live in Ottawa',
+      'I live in Toronto',
+      'I like birds',
+    ];
+    const photos = [photo1, photo2, photo3, photo4, photo5];
 
     let userProfiles = [];
     for(let i = 0; i < usernames.length; i++){
       userProfiles.push((
-        <UserProfile name={usernames[i]} photo={photos[i]} key={i} description={descriptions[i]}/>
+        <UserProfile name={usernames[i]} index={i} />
       ));
     }
 
@@ -53,7 +58,6 @@ class MultiView extends React.Component {
         </div>
         
       </div>
-      
     );
   }
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from 'components/Header';
 import LineChart from 'components/LineChart';
-import BarGraph from 'components/BarGraph';
 import styled from 'styled-components';
 import UserProfile from 'components/UserProfile';
 import { Redirect } from 'react-router-dom'
@@ -53,7 +52,6 @@ class SingleView extends React.Component {
                 <LineChart users={1} />
               </ChartDiv>
               <ChartDiv className="mt-4">
-                <BarGraph />
               </ChartDiv>
             </div>
           </div>
