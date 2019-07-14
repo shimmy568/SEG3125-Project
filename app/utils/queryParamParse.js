@@ -17,7 +17,7 @@ export default function queryParamParse(inp){
     outp.push(raw.user);
   } else {
     for(let i = 0; i < Object.keys(raw).length; i++){
-      outp.push(raw[`user${i}`]);
+      outp.push(raw[`user${i+1}`]);
     }
   }
 
