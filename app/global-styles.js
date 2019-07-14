@@ -27,6 +27,27 @@ const GlobalStyle = createGlobalStyle`
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
+
+  .clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+  }
+
+  .clearfix {
+    display: inline-block;
+  }
+
+  html[xmlns] .clearfix {
+    display: block;
+  }
+
+  * html .clearfix {
+    height: 1%;
+}
 `;
 
 export default GlobalStyle;

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import {
-    Label, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+    Label, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
 const data = [
@@ -52,26 +52,28 @@ export default class BChart extends PureComponent {
 
     render() {
         return (
-            <BarChart
-                width={500}
-                height={300}
-                data={data}
-                margin={{
-                    top: 5, right: 30, left: 20, bottom: 5,
-                }}
-            >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" height={45}>
-                    <Label value="Month" offset={-1} position="insideBottom" />
-                </XAxis>
-                <YAxis width={40} >
-                    <Label angle={270} value="Commit Frequency (%)" position="left" style={{ textAnchor: 'middle' }}></Label>
-                </YAxis>
-                <Tooltip />
-                <Legend verticalAlign="top" align="center" />
-                <Bar dataKey="user1" fill="#8884d8" />
-                <Bar dataKey="user2" fill="#82ca9d" />
-            </BarChart>
+            <ResponsiveContainer width="100%" height={300}>
+                <BarChart
+                    width={500}
+                    height={300}
+                    data={data}
+                    margin={{
+                        top: 5, right: 30, left: 20, bottom: 5,
+                    }}
+                >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" height={45}>
+                        <Label value="Month" offset={-1} position="insideBottom" />
+                    </XAxis>
+                    <YAxis width={40} >
+                        <Label angle={270} value="Commit Frequency (%)" position="left" style={{ textAnchor: 'middle' }}></Label>
+                    </YAxis>
+                    <Tooltip />
+                    <Legend verticalAlign="top" align="center" />
+                    <Bar dataKey="user1" fill="#8884d8" />
+                    <Bar dataKey="user2" fill="#82ca9d" />
+                </BarChart>
+            </ResponsiveContainer>
         );
     }
 }
