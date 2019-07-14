@@ -5,7 +5,7 @@ import UserProfile from '../UserProfile';
 
 function Footer() {
   const FooterDiv = styled.div`
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     left: 0px;
     width: 100%;
