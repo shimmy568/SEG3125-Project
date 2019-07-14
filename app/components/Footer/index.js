@@ -1,6 +1,6 @@
 import React from 'react';
-import HelpButton from '../Help';
 import styled from 'styled-components';
+import HelpButton from '../Help';
 import UserProfile from '../UserProfile';
 import './style.css';
 
@@ -20,14 +20,13 @@ function Footer() {
   return (
     <FooterDiv>
       <div className="float-left">
-        <HelpButton/>
+        <HelpButton />
       </div>
       {/* <UserProfile name="name" photo={require('../../images/logo.png')} description='description'/> */}
-      <ReportAProblem href="#" className="float-right">Report a Problem</ReportAProblem>
+      <ReportAProblem href="#" className="float-right">
+        Report a Problem
+      </ReportAProblem>
     </FooterDiv>
-
-      
-
   );
 }
 
