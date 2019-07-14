@@ -20,7 +20,7 @@ class SingleView extends React.Component {
     return (
       <div>
         <Header />
-        <p>This is the view page for user {username}</p>
+        <UserProfile name={username} photo={require('../../images/logo.png')} description='GitHub profile description'/>
       </div>
     );
   }
