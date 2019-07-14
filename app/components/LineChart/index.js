@@ -1,10 +1,10 @@
 import React from 'react';
 import Chart from './chart';
 
-export default function LineChart() {
+export default function LineChart(props) {
     return (
         <div>
-            <Chart/>
+            <Chart users={props.users} />
         </div>
     );
 }

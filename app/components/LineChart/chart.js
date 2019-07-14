@@ -4,59 +4,52 @@ import {
 } from 'recharts';
 import React, { PureComponent } from 'react';
 
-const data = [
-    {
-        name: 'Jan', user1: 25, user2: 21,
-    },
-    {
-        user1: 4, user2: 19,
-    },
-    {
-        user1: 9, user2: 17,
-    },
-    {
-        name: 'April', user1: 30, user2: 28,
-    },
-    {
-        user1: 24, user2: 26,
-    },
-    {
-        user1: 15, user2: 15,
-    },
-    {
-        name: 'July', user1: 8, user2: 2,
-    },
-    {
-        user1: 4, user2: 0,
-    },
-    {
-        user1: 23, user2: 10,
-    },
-    {
-        name:'Oct',user1: 12, user2: 32,
-    },
-    {
-        user1: 14, user2: 20,
-    },
-    {
-        user1: 30, user2: 47,
-    },
+const userData = [
+    [25, 19, 17, 30, 26, 15, 8, 0, 10, 12, 20, 47],
+    [21, 28, 10, 13, 42, 43, 29, 23, 25, 23, 23, 34],
+    [13, 14, 34, 19, 7, 45, 30, 13, 12, 15, 16, 19],
+    [24, 20, 23, 22, 24, 27, 29, 30, 46, 47, 48, 21],
+    [18, 28, 20, 31, 36, 29, 9, 2, 2, 3, 10, 11]
 ];
+
+const userColors = ["#f56942", "#ffee6e", "#a6ff6e", "#8884d8", , "#82ca9d"]
+
+const months = ["Jan", "Feb", 'Mar', "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
+function populateData(numberOfUsers) {
+    let finalData = [];
+    for (var i = 0; i < 12; i++) {
+        var tempObj = { "name": months[i] };
+        for (var j = 0; j < numberOfUsers; j++) {
+            tempObj["user" + (j + 1)] = userData[j][i];
+        }
+        console.log(tempObj);
+        finalData.push(tempObj);
+    }
+    return finalData;
+}
+
 
 export default class Chart extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            numberOfLines: this.props.users
+            numberOfLines: props.users
         }
     }
     render() {
+        const lineElems = [];
+        for (var i = 0; i < this.state.numberOfLines; i++) {
+            lineElems.push(
+                <Line type="monotone" dataKey={"user" + (i + 1)} stroke={userColors[i]} />
+            );
+        }
         return (
             <ResponsiveContainer width="100%" height={300}>
                 <LineChart
                     width={500}
                     height={300}
-                    data={data}
+                    data={populateData(5)}
                     margin={{
                         top: 5, right: 30, left: 20, bottom: 5,
                     }}>
@@ -69,8 +62,7 @@ export default class Chart extends PureComponent {
                     </YAxis>
                     <Tooltip />
                     <Legend verticalAlign="top" />
-                    <Line type="monotone" dataKey="user1" stroke="#8884d8" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="user2" stroke="#82ca9d" />
+                    {lineElems}
                 </LineChart>
             </ResponsiveContainer>
         );
