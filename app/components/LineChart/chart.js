@@ -47,7 +47,7 @@ export default class Chart extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-
+            numberOfLines: this.props.users
         }
     }
     render() {
