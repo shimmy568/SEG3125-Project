@@ -1,32 +1,44 @@
 import React from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
-import logo from '../../images/logo.png';
+import user from '../../images/user.svg';
 
-export default function UserProfile(User) {
+export default function UserProfile(props) {
+
+  let link = (
+    <Link to={`/single?user=${props.name}`} className="btn btn-primary">
+      View Profile
+    </Link>
+  );
+  if(props.isSingle){
+    link = (
+      <a href={`https://github.com/${props.name}`} className="btn btn-primary">
+        View GitHub Profile
+      </a>
+    );
+  }
+
   return (
     <div>
       <div className="card">
-        {User.photo !== undefined ? (
-          <img src={User.photo} className="card-img-top" alt="" />
+        {props.photo !== undefined ? (
+          <img src={props.photo} className="card-img-top" alt="" />
         ) : (
-          <img src={logo} className="card-img-top" />
+          <img src={user} className="card-img-top" />
         )}
         <div className="card-body">
-          {User.name !== undefined ? (
-            <h5 className="card-title">{User.name}</h5>
+          {props.name !== undefined ? (
+            <h5 className="card-title">{props.name}</h5>
           ) : (
             <h5 className="card-title">Unable to find name</h5>
           )}
-          {User.description !== undefined ? (
-            <p className="card-text">{User.description}</p>
+          {props.description !== undefined ? (
+            <p className="card-text">{props.description}</p>
           ) : (
             <p className="card-text">Unable to find description</p>
           )}
-          {User.name !== undefined ? (
-            <Link to={`/single?user=${User.name}`} class="btn btn-primary">
-              View Profile
-            </Link>
+          {props.name !== undefined ? (
+            link
           ) : null}
         </div>
       </div>

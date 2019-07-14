@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 class NavBar extends React.Component {
@@ -13,13 +14,13 @@ class NavBar extends React.Component {
       flex-lg-row justify-content-start"
       >
         <div className="mr-4">
-          <a className="navbar-brand" href="#">
+          <Link to="/" className="navbar-brand" href="#">
             <img
               src={require('../../images/logo.png')}
               width="50px"
               height="50px"
             />
-          </a>
+          </Link>
         </div>
         <div>
           <span className="navbar-brand">StatsHub</span>
