@@ -18,9 +18,9 @@ export default function UserProfile(props) {
     'I like birds',
   ];
   const photos = [photo1, photo2, photo3, photo4, photo5];
-  const colors = ['red', 'blue', 'pink', 'yellow', 'green'];
-  const oppocolors = ['white', 'white', 'black', 'black', 'white'];
-  const w = parseInt(props.name[props.name.length - 1], 10) % 5;
+  const colors = ["#f56942", "#ffee6e", "#a6ff6e", "#8884d8", , "#82ca9d"];
+  const oppocolors = ["black", "black", "black", "black", , "black"];
+  const w = props.index;
 
   let link = (
     <Link

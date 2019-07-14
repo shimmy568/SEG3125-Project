@@ -37,8 +37,7 @@ class MultiView extends React.Component {
         {usernames.map((user, index) => (
           <UserProfile
             name={user}
-            photo={photos[index]}
-            description={descriptions[index]}
+            index={index}
           />
         ))}
       </div>
