@@ -50,7 +50,7 @@ class SingleView extends React.Component {
             </div>
             <div className="col-8">
               <ChartDiv>
-                <LineChart />
+                <LineChart users={1} />
               </ChartDiv>
               <ChartDiv className="mt-4">
                 <BarGraph />

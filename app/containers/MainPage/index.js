@@ -97,22 +97,36 @@ class MainPage extends React.Component {
       }
     }
 
+    let addUserHref = "#";
+    let addUserStyle = null;
+    if(this.state.inpCount >= 5){
+      addUserHref = null;
+      addUserStyle = {color: "gray", cursor: "not-allowed"};
+    }
+
+    let removeUserHref = "#";
+    let removeUserStyle = null;
+    if(this.state.inpCount == 1){
+      removeUserHref = null;
+      removeUserStyle = {color: "gray", cursor: "not-allowed"};
+    }
+
     return (
       <div>
         <Header />
         <div className="container mt-4">
-          <div className="row">{inputs}</div>
-          <div className="row text-center">
+          <div className="row text-center mb-3">
             <div className="col-4 offset-4">
-              <a onClick={this.onAddInput} href="#">
+              <a onClick={this.onAddInput} style={addUserStyle} href={addUserHref}>
                 Add User
               </a>
               &nbsp;
-              <a onClick={this.onRemoveInput} href="#">
+              <a onClick={this.onRemoveInput} style={removeUserStyle} href={removeUserHref}>
                 Remove User
               </a>
             </div>
           </div>
+          <div className="row">{inputs}</div>
           <div className="row text-center">
             <button
               type="button"
