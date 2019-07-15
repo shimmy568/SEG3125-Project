@@ -19,9 +19,14 @@ export default function UserProfile(props) {
   ];
   const photos = [photo1, photo2, photo3, photo4, photo5];
   const colors = ["#f56942", "#ffee6e", "#a6ff6e", "#8884d8", , "#82ca9d"];
-  const oppocolors = ["black", "black", "black", "black", , "black"];
+  const oppocolors = ["black", "black", "black", "black", "black"];
   const w = props.index;
-  const x = parseInt(props.name[props.name.length - 1], 10) % 5;
+  let x = parseInt(props.name[props.name.length - 1], 10) % 5;
+  if(isNaN(x)){
+    x = 0;
+  }
+
+  console.log(x);
 
   let link = (
     <Link
@@ -38,8 +43,8 @@ export default function UserProfile(props) {
   );
   if (props.isSingle) {
     link = (
-      <Link
-        to={`https://github.com/${props.name}`}
+      <a
+        href={`https://github.com/${props.name}`}
         className="btn btn-primary"
         style={{
           backgroundColor: colors[w],
@@ -47,14 +52,14 @@ export default function UserProfile(props) {
           color: oppocolors[w],
         }}
       >
-        View Profile
-      </Link>
+        View GitHub Profile
+      </a>
     );
   }
 
   return (
     <div>
-      <div className="card">
+      <div style={{margin: "auto"}} className="card">
         {props.name !== undefined ? (
           <img src={photos[x]} className="card-img-top" alt="" />
         ) : (

@@ -3,11 +3,7 @@ import Header from 'components/Header';
 import PropTypes from 'prop-types';
 import queryParamParse from 'utils/queryParamParse';
 import UserProfile from '../../components/UserProfile';
-import photo1 from '../../images/profilepic1.png';
-import photo2 from '../../images/profilepic2.png';
-import photo3 from "../../images/profilepic3.png";
-import photo4 from "../../images/profilepic4.png";
-import photo5 from "../../images/profilepic5.png";
+import LineChart from '../../components/LineChart';
 import styled from 'styled-components';
 
 
@@ -24,14 +20,6 @@ class MultiView extends React.Component {
     if (usernames.length == 0) {
       return <Redirect to="/" />;
     }
-    const descriptions = [
-      'I Like coding',
-      'I like photography',
-      'I live in Ottawa',
-      'I live in Toronto',
-      'I like birds',
-    ];
-    const photos = [photo1, photo2, photo3, photo4, photo5];
 
     let userProfiles = [];
     for(let i = 0; i < usernames.length; i++){
@@ -45,6 +33,12 @@ class MultiView extends React.Component {
       margin-right: 150px;
     `;
 
+    let ChartDiv = styled.div`
+      padding: 5px;
+      border: 1px solid black;
+      border-radius: 3px;
+    `;
+
     return (
       <div>
         <Header />
@@ -53,8 +47,13 @@ class MultiView extends React.Component {
             {userProfiles}
           </div>
         </NamesDiv>
-        <div>
-          graphs here
+        <div className="container mb-5">
+          <ChartDiv>
+            <LineChart users={usernames.length} singleview={false} usernames={usernames} />
+          </ChartDiv>
+          <ChartDiv className="mt-4">
+            <LineChart users={usernames.length} singleview={true} usernames={usernames} />
+          </ChartDiv>
         </div>
         
       </div>

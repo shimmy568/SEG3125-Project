@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from 'components/Header';
 import LineChart from 'components/LineChart';
+import InfoChart from 'components/InfoChart';
 import styled from 'styled-components';
 import UserProfile from 'components/UserProfile';
 import { Redirect } from 'react-router-dom'
@@ -45,13 +46,20 @@ class SingleView extends React.Component {
           </div>
           <div className="row">
             <div className="col-4">
-              <UserProfile name={username} photo={require('../../images/logo.png')} description='GitHub profile bio' isSingle={true}/>
+              <div>
+                <UserProfile name={username} isSingle={true}/>
+              </div>
+              
             </div>
             <div className="col-8">
               <ChartDiv>
-                <LineChart users={1} />
+                <LineChart users={1} singleview={false} usernames={[username]} />
               </ChartDiv>
               <ChartDiv className="mt-4">
+                <LineChart users={1} singleview={true} usernames={[username]} />
+              </ChartDiv>
+              <ChartDiv className="col-12 mt-4 mb-5">
+                <InfoChart />
               </ChartDiv>
             </div>
           </div>
