@@ -4,6 +4,7 @@ import {
 } from 'recharts';
 import React, { PureComponent } from 'react';
 
+//Sample Data for the total commits data for a maximum of 5 users
 const userData = [
     [25, 19, 17, 30, 26, 15, 8, 0, 10, 12, 20, 47],
     [21, 28, 10, 13, 42, 43, 29, 23, 25, 23, 23, 34],
@@ -12,6 +13,7 @@ const userData = [
     [18, 28, 20, 31, 36, 29, 9, 2, 2, 3, 10, 11]
 ];
 
+//Sample Data for the lines commited data for a maximum of 5 users
 const singleViewData = [
     [180, 5200, 1600, 2129, 1312, 120, 330, 239, 6320, 132, 924, 721],
     [345, 2452, 2994, 2932, 329, 432, 2921, 1532, 2521, 2311, 2300, 1342],
@@ -19,11 +21,12 @@ const singleViewData = [
     [2344, 940, 2399, 2232, 2932, 392, 293, 302, 442, 472, 100, 2119],
     [394, 593, 3953, 1204, 2943, 3902, 3592, 7004, 3942, 3942, 1392, 1149]
 ];
-
+//Colors representing each individual line
 const userColors = ["#f56942", "#ffee6e", "#a6ff6e", "#8884d8", , "#82ca9d"]
-
+//Array of months (XAxis values)
 const months = ["Jan", "Feb", 'Mar', "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
+//Building a data set for the line graph (XAxis & YAxis value combos..)
 function populateData(numberOfUsers, names, isSingleView) {
     let finalData = [];
     for (var i = 0; i < 12; i++) {
@@ -52,7 +55,9 @@ export default class Chart extends PureComponent {
         console.log(props);
     }
 
+    //Rendering the line chart component
     render() {
+        //Compiling a list of Line component tags with customized props
         const lineElems = [];
         let yAxisLabel = "";
         for (var i = 0; i < this.state.numberOfLines; i++) {

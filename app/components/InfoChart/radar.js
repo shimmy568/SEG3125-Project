@@ -3,14 +3,18 @@ import {
     PieChart, Pie, Cell, Legend, ResponsiveContainer
 } from 'recharts';
 
+
+//Four sample data plots
 const data = [
     { name: 'Commits', value: 64 },
     { name: 'Issues', value: 12 },
     { name: 'Reviews', value: 4 },
     { name: 'Pull Requests', value: 20 },
 ];
+//RGB Hex color values. Used for pie chart sections
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
+//Adding an outside custom label to the pie chart
 const customLabel = ({
     cx,
     cy,
@@ -37,7 +41,7 @@ const customLabel = ({
   }
 
 export default class RChart extends PureComponent {
-
+    //Renders the pie chart component wrapped under a responsive container
     render() {
         return (
             <ResponsiveContainer width="100%" height={325}>

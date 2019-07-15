@@ -7,6 +7,7 @@ class NavBar extends React.Component {
     this.state = {};
   }
 
+  //Render the Navigation bar component
   render() {
     return (
       <nav
