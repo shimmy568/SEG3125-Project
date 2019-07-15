@@ -1,47 +1,64 @@
 import React, { PureComponent } from 'react';
 import {
-    Radar, RadarChart, PolarGrid, Legend,
-    PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer
+    PieChart, Pie, Cell, Legend, ResponsiveContainer
 } from 'recharts';
 
 const data = [
-    {
-        subject: 'Personal Private Repository Commits', A: 45, B: 25
-    },
-    {
-        subject: 'Reviews', A: 5, B: 10
-    },
-    {
-        subject: 'Issues Raised', A: 5, B: 10
-    },
-    {
-        subject: 'Personal Public Repository Commits', A: 30, B: 15
-    },
-    {
-        subject: 'Issues Closed', A: 10, B: 5
-    },
-    {
-        subject: 'Organizational Commits', A: 5, B: 35
-    },
+    { name: 'Commits', value: 64 },
+    { name: 'Issues', value: 12 },
+    { name: 'Reviews', value: 4 },
+    { name: 'Pull Requests', value: 20 },
 ];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+
+const customLabel = ({
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    value,
+    index
+  }) => {
+    const RADIAN = Math.PI / 180;
+    const radius = 25 + innerRadius + (outerRadius - innerRadius);
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);   
+    return (
+      <text
+        x={x}
+        y={y}
+        fill="#212730"
+        textAnchor={x > cx ? "start" : "end"}
+        dominantBaseline="central">
+        {value}%
+      </text>
+    );
+  }
 
 export default class RChart extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
 
-        }
-    }
     render() {
         return (
-        <ResponsiveContainer width="100%" height={500}>
-            <RadarChart outerRadius={150} width={500} height={500} data={data}>
-                <PolarGrid />
-                <PolarAngleAxis dataKey="subject"/>
-                <PolarRadiusAxis angle={30} domain={[0, 100]} />
-                <Radar name="name1" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-            </RadarChart>
-        </ResponsiveContainer>
+            <ResponsiveContainer width="100%" height={325}>
+                <PieChart>
+                    <Pie
+                        data={data}
+                        innerRadius={60}
+                        outerRadius={90}
+                        fill="#8884d8"
+                        paddingAngle={2}
+                        dataKey="value"
+                        label= {customLabel}
+                        labelLine={false}
+                    >
+                        {
+                            data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+                        }
+                    </Pie>
+                    <Legend/>
+                </PieChart>
+            </ResponsiveContainer>
         );
     }
 }

@@ -35,6 +35,14 @@ class SingleView extends React.Component {
       border-radius: 3px;
     `;
 
+    let PieChartDiv = styled.div`
+      padding: 5px;
+      border: 1px solid black;
+      border-radius: 3px;
+      width: 18rem;
+      margin: auto;
+    `;
+
     return (
       <div>
         <Header />
@@ -49,7 +57,9 @@ class SingleView extends React.Component {
               <div>
                 <UserProfile name={username} isSingle={true}/>
               </div>
-              
+              <PieChartDiv className="col-12 mt-3">
+                <InfoChart />
+              </PieChartDiv>
             </div>
             <div className="col-8">
               <ChartDiv>
@@ -57,9 +67,6 @@ class SingleView extends React.Component {
               </ChartDiv>
               <ChartDiv className="mt-4">
                 <LineChart users={1} singleview={true} usernames={[username]} />
-              </ChartDiv>
-              <ChartDiv className="col-12 mt-4 mb-5">
-                <InfoChart />
               </ChartDiv>
             </div>
           </div>
