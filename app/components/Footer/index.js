@@ -9,7 +9,7 @@ function Footer() {
     bottom: 0px;
     left: 0px;
     width: 100%;
-    height: 60px;
+    height: 7vh;
   `;
   const ReportAProblem = styled.a`
     position: absolute;
