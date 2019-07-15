@@ -2,6 +2,7 @@ import React from 'react';
 import Header from 'components/Header';
 import PropTypes from 'prop-types';
 import update from 'react-addons-update'; // ES6
+import * as toastr from 'toastr';
 
 class MainPage extends React.Component {
   constructor() {
@@ -45,6 +46,19 @@ class MainPage extends React.Component {
   }
 
   buttonClick() {
+    // Check that the button is supposed to be pressed
+    // If not show an error instead of navigating forward
+    let valid = true;
+    for(let i = 0; i < this.state.inpCount; i++){
+      if(this.state.inpContent[i] == ""){
+        valid = false;
+      }
+    }
+    if(!valid){
+      toastr.error("Some username fields are still empty.");
+      return;
+    }
+
     let url;
     if (this.state.inpCount == 1) {
       url = `/single?user=${this.state.inpContent[0]}`;
@@ -90,13 +104,6 @@ class MainPage extends React.Component {
       buttonStr = 'Compare';
     }
 
-    let buttonDisabled = false;
-    for (let i = 0; i < this.state.inpCount; i++) {
-      if (this.state.inpContent[i] == '') {
-        buttonDisabled = true;
-      }
-    }
-
     let addUserHref = "#";
     let addUserStyle = null;
     if(this.state.inpCount >= 5){
@@ -132,10 +139,10 @@ class MainPage extends React.Component {
               type="button"
               className="mt-3 col-2 offset-5 btn btn-primary btn-lg"
               onClick={this.onButtonClick}
-              disabled={buttonDisabled}
             >
               {buttonStr}
             </button>
+            <h3 className="text-center mt-4" style={{width: "100%"}}>Welcome to StatsHub. Select GitHub username(s) to see some stats</h3>
           </div>
         </div>
       </div>
