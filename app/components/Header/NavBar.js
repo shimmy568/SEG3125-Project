@@ -24,7 +24,7 @@ class NavBar extends React.Component {
           </Link>
         </div>
         <div>
-          <span className="navbar-brand">StatsHub</span>
+          <Link to="/" className="navbar-brand">StatsHub</Link>
         </div>
       </nav>
     );

@@ -26,10 +26,15 @@ export default function HelpButton() {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
-                Modal title
+                Trouble Shooting
               </h5>
             </div>
-            <div className="modal-body">...</div>
+            <div className="modal-body">
+              Are you experiencing issues. Have you tried refreshing the browser?
+              <br/>
+              <br/>
+              If you are having an issue with two users having the same photo try, putting a random int at the end of their name            
+              </div>
             <div className="modal-footer">
               <button
                 type="button"

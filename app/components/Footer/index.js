@@ -5,7 +5,7 @@ import UserProfile from '../UserProfile';
 
 function Footer() {
   const FooterDiv = styled.div`
-    position: fixed;
+    position: relative;
     bottom: 0px;
     left: 0px;
     width: 100%;
@@ -27,7 +27,7 @@ function Footer() {
         <HelpButton/>
       </ButtonDiv>
       {/* <UserProfile name="name" photo={require('../../images/logo.png')} description='description'/> */}
-      <ReportAProblem href="#" className="float-right">
+      <ReportAProblem href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="float-right">
         Report a Problem
       </ReportAProblem>
     </FooterDiv>
