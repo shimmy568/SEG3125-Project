@@ -154,7 +154,7 @@ class MainPage extends React.Component {
 
     return (
       <div style={{height: '93vh'}}>
-        <Header />
+        <Header name='Home'/>
         <div className="container mt-4">
           <div className="row text-center mb-3">
             <div className="col-4 offset-4">

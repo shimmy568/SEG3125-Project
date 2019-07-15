@@ -1,9 +1,9 @@
 import React from 'react';
 import NavBar from './NavBar';
 
-function Header() {
+function Header(props) {
   return (
-    <NavBar />
+    <NavBar name={props.name}/>
   );
 }
 

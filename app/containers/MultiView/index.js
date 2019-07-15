@@ -53,7 +53,7 @@ class MultiView extends React.Component {
 
     return (
       <div>
-        <Header />
+        <Header name='Comparison'/>
         <NamesDiv className="mt-4 mb-4">
           <div className="row d-flex justify-content-around">
             {userProfiles}

@@ -10,11 +10,8 @@ class NavBar extends React.Component {
   //Render the Navigation bar component
   render() {
     return (
-      <nav
-        className="navbar navbar-dark bg-secondary container-fullwidth 
-      flex-lg-row justify-content-start"
-      >
-        <div className="mr-4">
+      <nav className="navbar navbar-dark bg-secondary">
+        <div>
           <Link to="/" className="navbar-brand" href="#">
             <img
               src={require('../../images/logo.png')}
@@ -22,10 +19,14 @@ class NavBar extends React.Component {
               height="50px"
             />
           </Link>
-        </div>
-        <div>
           <Link to="/" className="navbar-brand">StatsHub</Link>
         </div>
+        
+        <span className="navbar-text" >
+          {this.props.name}
+        </span>
+        
+        
       </nav>
     );
   }

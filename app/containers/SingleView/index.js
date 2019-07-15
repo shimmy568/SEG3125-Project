@@ -55,7 +55,7 @@ class SingleView extends React.Component {
 
     return (
       <div>
-        <Header />
+        <Header name='Profile'/>
         <div className="container mt-4">
           <div className="row mb-4">
             <div className="col-12">
