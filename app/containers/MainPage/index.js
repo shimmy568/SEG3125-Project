@@ -5,6 +5,10 @@ import update from 'react-addons-update'; // ES6
 import * as toastr from 'toastr';
 
 class MainPage extends React.Component {
+
+  /**
+   * The constructor for the main page
+   */
   constructor() {
     super();
     this.state = {
@@ -13,7 +17,13 @@ class MainPage extends React.Component {
     };
   }
 
+  /**
+   * Add an input to the page
+   */
   addInput() {
+
+    // Increase the number of inputs and add another item to the array
+    // To store the value of the input
     const inp = this.state.inpContent;
     inp.push('');
     this.setState({
@@ -22,11 +32,18 @@ class MainPage extends React.Component {
     });
   }
 
+
+  /**
+   * Removes an input from the page
+   */
   removeInput() {
+
+    // Don't remove an input if it's the last one on the page
     if(this.state.inpCount == 1){
       return;
     }
     
+    // remove the input from the page
     const inp = this.state.inpContent;
     inp.pop();
     this.setState({
@@ -35,6 +52,11 @@ class MainPage extends React.Component {
     });
   }
 
+  /**
+   * Update the username state when the inputs are updated
+   * 
+   * @param {object} event The event object passed from the event
+   */
   updateUsername(event) {
     const index = parseInt(event.target.getAttribute('index'));
     const newStr = event.target.value;
@@ -45,6 +67,9 @@ class MainPage extends React.Component {
     });
   }
 
+  /**
+   * The event that gets triggered when the submit button is clicked
+   */
   buttonClick() {
     // Check that the button is supposed to be pressed
     // If not show an error instead of navigating forward
@@ -54,11 +79,14 @@ class MainPage extends React.Component {
         valid = false;
       }
     }
+
+    // Display the error message if need be
     if(!valid){
       toastr.error("Some username fields are still empty.");
       return;
     }
 
+    // Redirect the user to the correct page based on how many inputs there are on the page
     let url;
     if (this.state.inpCount == 1) {
       url = `/single?user=${this.state.inpContent[0]}`;
@@ -76,12 +104,15 @@ class MainPage extends React.Component {
     this.props.history.push(url);
   }
 
+  // Binding all the functions to the current class
   onUpdateUsername = this.updateUsername.bind(this);
   onAddInput = this.addInput.bind(this);
   onRemoveInput = this.removeInput.bind(this);
   onButtonClick = this.buttonClick.bind(this);
 
   render() {
+
+    // Create the list of inputs elements
     const inputs = [];
     for (let i = 0; i < this.state.inpCount; i++) {
       inputs.push(
@@ -99,11 +130,13 @@ class MainPage extends React.Component {
       );
     }
 
+    // Deciding what text the button should display
     let buttonStr = 'View';
     if (this.state.inpCount > 1) {
       buttonStr = 'Compare';
     }
 
+    // Checking if the user is able to add more inputs
     let addUserHref = "#";
     let addUserStyle = null;
     if(this.state.inpCount >= 5){
@@ -111,6 +144,7 @@ class MainPage extends React.Component {
       addUserStyle = {color: "gray", cursor: "not-allowed"};
     }
 
+    // Checking if the user is able to remove more inputs
     let removeUserHref = "#";
     let removeUserStyle = null;
     if(this.state.inpCount == 1){

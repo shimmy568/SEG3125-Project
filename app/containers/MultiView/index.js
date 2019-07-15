@@ -9,18 +9,30 @@ import styled from 'styled-components';
 
 
 class MultiView extends React.Component {
+
+  /**
+   * The constructor for the multi view page
+   */
   constructor() {
     super();
     this.state = {};
   }
 
+  /**
+   * The render method for the multi view page
+   */
   render() {
+
+    // Extract the usernames from the query params
     const usernames = queryParamParse(this.props.location.search);
 
+    // If there are no usernames extracted than the url is invalid and the user
+    // is to be redirected to the main page
     if (usernames.length == 0) {
       return <Redirect to="/" />;
     }
 
+    // Create the list of user profiles to be added to the page
     let userProfiles = [];
     for(let i = 0; i < usernames.length; i++){
       userProfiles.push((

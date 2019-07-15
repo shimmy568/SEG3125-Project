@@ -8,14 +8,12 @@
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Router } from 'react-router-dom';
 
 import MainPage from 'containers/MainPage/';
 import SingleView from 'containers/SingleView/';
+import NotFoundPage from 'containers/NotFoundPage/';
 import MultiView from 'containers/MultiView/';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 import GlobalStyle from '../../global-styles';

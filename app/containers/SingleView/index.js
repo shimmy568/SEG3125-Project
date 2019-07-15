@@ -9,14 +9,24 @@ import { Redirect } from 'react-router-dom'
 import queryParamParse from 'utils/queryParamParse';
 
 class SingleView extends React.Component {
+
+  /**
+   * The constructor for the single view page
+   */
   constructor() {
     super();
     this.state = {};
   }
 
+  /**
+   * The render method for the single view page
+   */
   render() {
+    // Extract the username from the query params
     let username = queryParamParse(this.props.location.search)[0];
     
+    // If the username was not set than the url is invalid
+    // Redirect the user to the home page
     if(username == null){
       return <Redirect to="/" />
     }

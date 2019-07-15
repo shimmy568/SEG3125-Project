@@ -5,17 +5,18 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-
-import H1 from 'components/H1';
-import messages from './messages';
 
 export default function NotFound() {
+
+  // Set the timeout to redirect the user
+  setTimeout(() => {
+    this.props.history.push("/");
+  }, 3000);
+
   return (
-    <article>
-      <H1>
-        <FormattedMessage {...messages.header} />
-      </H1>
-    </article>
+    <div>
+      <h1>404 page not found.</h1>
+      <h3>You will be redirected to the main page in 3 seconds</h3>
+    </div>
   );
 }
