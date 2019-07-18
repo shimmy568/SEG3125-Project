@@ -21,12 +21,12 @@ function Footer() {
     bottom: 3px;
     left: 3px;
   `;
+  //The footer keeps our help button and also a rick roll
   return (
     <FooterDiv>
       <ButtonDiv>
         <HelpButton/>
       </ButtonDiv>
-      {/* <UserProfile name="name" photo={require('../../images/logo.png')} description='description'/> */}
       <ReportAProblem href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" className="float-right">
         Report a Problem
       </ReportAProblem>

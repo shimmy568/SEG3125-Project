@@ -2,6 +2,8 @@ import React from 'react';
 import './style.css';
 import Popup from 'reactjs-popup';
 
+//This is our help button it uses boostrap modal for the pop up the help is just some random information
+
 export default function HelpButton() {
   return (
     <div>

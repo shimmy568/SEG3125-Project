@@ -19,8 +19,11 @@ class NavBar extends React.Component {
               height="50px"
             />
           </Link>
+          <div className="navbar-brand">	
           <Link to="/" className="navbar-brand">StatsHub</Link>
+          </div>
         </div>
+        
         
         <span className="navbar-text" >
           {this.props.name}

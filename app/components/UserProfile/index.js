@@ -10,6 +10,8 @@ import photo4 from '../../images/profilepic4.png';
 import photo5 from '../../images/profilepic5.png';
 
 export default function UserProfile(props) {
+  //These are just basic hard coded values
+  //It is all determined on the last character of the user name
   const descriptions = [
     'I Like coding',
     'I like photography',
@@ -27,7 +29,7 @@ export default function UserProfile(props) {
   }
 
   console.log(x);
-
+  //So this link is for depending on if we send them to our internal page or if we send them to github
   let link = (
     <Link
       to={`/single?user=${props.name}`}
@@ -41,6 +43,7 @@ export default function UserProfile(props) {
       View Profile
     </Link>
   );
+  //This is where we send them to github
   if (props.isSingle) {
     link = (
       <a
@@ -56,7 +59,7 @@ export default function UserProfile(props) {
       </a>
     );
   }
-
+  //In here we have error handeling based on if the user name is given
   return (
     <div>
       <div style={{margin: "auto"}} className="card">
